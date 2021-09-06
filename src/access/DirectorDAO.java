@@ -59,10 +59,10 @@ public class DirectorDAO {
         try {
             if(conn == null)
                 conn = ConnectionDB.getConnection();
-            String sql = "SELECT nombre, apellido, nacionalidad FROM director WHERE id_director="+id+";";
+            String sql = "SELECT nombre, apellido, nacionalidad FROM director WHERE id_director = ?;";
             PreparedStatement statement = conn.prepareStatement(sql);
-            //statement.setInt(1, id);
-            ResultSet result = statement.executeQuery(sql);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
             while (result.next()) {
                 director = new DirectorModel(id, result.getString(1), result.getString(2), result.getString(3));
                 break;
@@ -71,6 +71,7 @@ public class DirectorDAO {
         catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Código : " + ex.getErrorCode() 
                                         + "\nError :" + ex.getMessage());
+            System.out.println("Codigo:" +ex.getErrorCode()+"Error: "+ ex.getMessage());
         }
         return director;
     }
