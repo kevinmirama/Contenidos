@@ -7,7 +7,7 @@ package main;
 
 import access.DirectorDAO;
 import model.DirectorModel;
-
+import view.MainWindow;
 /**
  *
  * @author Georgie
@@ -30,13 +30,13 @@ public class Main {
                       
         }
         */
-        
+        /*
         System.out.println("DIRECTOR 1:");
         System.out.println(dir.getDirector(101).getNombre());
         System.out.println(dir.getDirector(101).getApellido());
         System.out.println(dir.getDirector(101).getNacionalidad());
-        
-        
+        */
+         new MainWindow();
         //DirectorModel dm = new DirectorModel(101, "Gerogie", "Wild", "Colombiano");
         //dir.updateDirector(dm);
        //dir.deleteMuseum(101);

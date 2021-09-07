@@ -89,6 +89,12 @@ public class DirectorModel {
     public String nacionalidadtoString(){
         return this.nombre;
     }
+    
+        public Object[] toArray(){
+       Object[]data = {id, nombre, apellido, nacionalidad};
+        return data;
+       
+   }
 
    
 }

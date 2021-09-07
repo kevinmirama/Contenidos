@@ -79,7 +79,7 @@ public class DirectorDAO {
     
     /**
      * 
-     * @param museum 
+     * @param director 
      */
     public void insertDirector(DirectorModel director){
         try {
@@ -105,7 +105,7 @@ public class DirectorDAO {
     
     /**
      * 
-     * @param museum 
+     * @param director
      */
     public void updateDirector(DirectorModel director) {
         try {
@@ -150,4 +150,5 @@ public class DirectorDAO {
                     + ex.getErrorCode() + "\nError :" + ex.getMessage());
         }
     }
+    
 }
