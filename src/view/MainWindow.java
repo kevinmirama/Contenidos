@@ -32,9 +32,11 @@ public class MainWindow extends JFrame {
         }
         
         ResultsPanel resultsPanel = new ResultsPanel();
+        resultsPanel.getTblResults();
         setContentPane(resultsPanel);
         add(new ControlsPanel(resultsPanel));
         
+        setBounds(58, 11, 540, 517);        
         setSize(720, 720);
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

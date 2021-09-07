@@ -26,12 +26,11 @@ public class ResultsPanel extends JPanel {
     
     private void initComponents(){
         this.tblResults = new JTable();
-        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        this.tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
         
         this.jspPane = new JScrollPane(this.tblResults);
+        setBounds(58, 11, 540, 517);
         add(jspPane, BorderLayout.CENTER);
-        
-        setPreferredSize(new Dimension(1020, 800));
     }
 
     /**

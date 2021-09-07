@@ -42,9 +42,9 @@ public class ConnectionDB {
             String password = (String)jsonObject.get("db_pssword");
             String dbURL = "jdbc:mysql://"+host+":"+port+"/contenidos" ;
             
-            conn = DriverManager.getConnection(dbURL, username, password);
-            if( conn != null ) 
-               System.out.println ( "Conectado" );
+            conn = DriverManager.getConnection(dbURL, username, password); 
+           if( conn != null ) 
+            System.out.println ( "Conectado" );
         } 
         catch( SQLException | FileNotFoundException ex ) {
             ex.printStackTrace();
@@ -55,8 +55,9 @@ public class ConnectionDB {
         
         return conn;
     }
-    
+ /*   
     public static void main(String[] args){
         getConnection();
     }
+*/
 }

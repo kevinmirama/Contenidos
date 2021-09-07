@@ -34,7 +34,6 @@ public class ChangeEvent implements ActionListener {
             int director     = ((DirectorModel)this.controlsPanel.getCbxDirectorsList().getSelectedItem()).getId();
             if(director == -1) {
                 directors = directorDAO.getAllDirectors();
-                //directors.add(0, new DirectorModel(-1, "Todos los directores", "", ""));
             }
             else {
                

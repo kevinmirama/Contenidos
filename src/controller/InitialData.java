@@ -24,7 +24,6 @@ public class InitialData {
     public InitialData(){
         DirectorDAO directorDAO = new DirectorDAO();
         this.directors = directorDAO.getAllDirectors();
-       // this.directors.add(0, new DirectorModel(-1,"","", "Todos los directores"));
     }
 
     /**

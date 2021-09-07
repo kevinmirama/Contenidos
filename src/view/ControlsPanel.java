@@ -32,12 +32,12 @@ public class ControlsPanel extends JPanel {
  
     private JLabel                       lblMuseums;
     private JComboBox<DirectorModel>       cbxDirectorsList;
-    private JLabel                       lblPresentations;
-    //private JComboBox<PresentationModel> cbxPresentationsList;
     private JLabel                       lblName;
     private JTextField                   txtName;
     private JButton                      btnSearch;
-    private JButton                      btnAddArtPiece;
+    private JButton                      btnAddDirector;
+    private JButton                      btnEditDirector;
+    private JButton                      btnDeleteDirector;
     private JTable                       tblResults;
     
     /**
@@ -60,17 +60,15 @@ public class ControlsPanel extends JPanel {
         // Complete Directors info
         this.setTblResults(initialData.getDirectors());
         
-        // Director selection
-        this.lblMuseums = new JLabel("Directors");
-        add(this.getLblDirectors());
+       
         
-        this.cbxDirectorsList = new JComboBox();
-        this.cbxDirectorsList.setModel(new DefaultComboBoxModel<>(initialData.getDirectors().toArray(new DirectorModel[initialData.getDirectors().size()])));
-        this.cbxDirectorsList.setSelectedIndex(0);
-        add(this.getCbxDirectorsList());
+        //this.cbxDirectorsList = new JComboBox();
+       // this.cbxDirectorsList.setModel(new DefaultComboBoxModel<>(initialData.getDirectors().toArray(new DirectorModel[initialData.getDirectors().size()])));
+        //this.cbxDirectorsList.setSelectedIndex(0);
+        //add(this.getCbxDirectorsList());
         
-        ChangeEvent changeEvent = new ChangeEvent(this);
-        this.getCbxDirectorsList().addActionListener(changeEvent);
+       // ChangeEvent changeEvent = new ChangeEvent(this);
+//        this.getCbxDirectorsList().addActionListener(changeEvent);
     
         // Name patttern 
         this.lblName = new JLabel(" Nombre del Director");
@@ -88,9 +86,20 @@ public class ControlsPanel extends JPanel {
         this.btnSearch.addActionListener(clickEvent);
         
         // Insert  button
-        this.btnAddArtPiece = new JButton("Agregar Nuevo Director");
-        add(this.getBtnAddArtPiece());
-        this.getBtnAddArtPiece().addActionListener(clickEvent);
+        this.btnAddDirector = new JButton("Agregar Nuevo Director");
+        add(this.getBtnAddDirector());
+        this.getBtnAddDirector().addActionListener(clickEvent);
+        
+        // Edit button
+        this.btnEditDirector = new JButton("Editar un Director");
+        add(this.getBtnEditDirector());
+        this.getBtnEditDirector().addActionListener(clickEvent);
+        
+        //Delete button
+        this.btnDeleteDirector = new JButton("Eliminar un Director");
+        add(this.getBtnDeleteDiector());
+        this.getBtnDeleteDiector().addActionListener(clickEvent);
+        
     }
 
     /**
@@ -153,17 +162,30 @@ public class ControlsPanel extends JPanel {
         tableModel.setColumnIdentifiers(headers); 
         this.tblResults.setModel(tableModel);
         for(int i=0; i<directors.size(); i++){
-            tableModel.addRow(directors.get(i).toArray() );
+            tableModel.addRow(directors.get(i).toArray());
         }
     }
+    
 
     /**
-     * @return the btnAddArtPiece
+     * @return the btnAddDirector
      */
-    public JButton getBtnAddArtPiece() {
-        return btnAddArtPiece;
+    public JButton getBtnAddDirector() {
+        return btnAddDirector;
     }
-
+    
+     /**
+     * @return the btnEditDirector
+     */
+    public JButton getBtnEditDirector() {
+        return btnEditDirector;
+    }
+ /**
+     * @return the btnEditDirector
+     */
+    public JButton getBtnDeleteDiector() {
+        return btnDeleteDirector;
+    }
     
 
    
