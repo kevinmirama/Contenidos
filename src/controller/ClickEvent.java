@@ -50,8 +50,11 @@ public class ClickEvent implements ActionListener {
             AddDirector addDirectorView = new AddDirector();
             addDirectorView.setVisible(true);
         }else if(actionEvent.getSource() == this.controlsPanel.getBtnEditDirector()){
-             EditDirector editDirectorView = new EditDirector(tablita);            
+            if(tablita.getSelectedRow() > -1){
+                EditDirector editDirectorView = new EditDirector(tablita);            
                 editDirectorView.setVisible(true);
+            }else{JOptionPane.showMessageDialog(null, "¡Seleccione un director!");}
+             
         }else if(actionEvent.getSource() == this.controlsPanel.getBtnDeleteDiector()){
             if(tablita.getSelectedRow() > -1){
               int i = JOptionPane.showConfirmDialog(null, "¿Seguro que quiere borrar el director? "+tablita.getValueAt(tablita.getSelectedRow(), 0));
