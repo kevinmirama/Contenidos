@@ -32,7 +32,7 @@ public class DirectorDAO {
             if(conn == null)
                 conn = ConnectionDB.getConnection();
             
-            String sql          = "SELECT id_director, nombre, apellido, nacionalidad FROM director;";
+            String sql          = "SELECT dir_id, dir_nombre, dir_apellido, dir_nacionalidad FROM director;";
             Statement statement = conn.createStatement();
             ResultSet result    = statement.executeQuery(sql);
             
@@ -86,7 +86,7 @@ public class DirectorDAO {
             if(conn == null)
                 conn = ConnectionDB.getConnection();
             
-            String sql = "INSERT INTO director(id_director, nombre, apellido, nacionalidad) VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO director(dir_id, dir_nombre,dir_apellido,dir_nacionalidad) VALUES (?, ?, ?, ?);";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, director.getId());
             statement.setString(2, director.getNombre());
@@ -112,7 +112,7 @@ public class DirectorDAO {
             if(conn == null)
                 conn = ConnectionDB.getConnection();
             
-            String sql = "UPDATE director SET nombre = ?, apellido = ?, nacionalidad = ? WHERE id_director=?;";
+            String sql = "UPDATE director SET dir_nombre = ?, dir_apellido = ?, dir_nacionalidad = ? WHERE dir_id=?;";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, director.getNombre());
             statement.setString(2, director.getApellido());
@@ -138,7 +138,7 @@ public class DirectorDAO {
             if(conn == null)
                 conn = ConnectionDB.getConnection();
             
-            String sql = "DELETE FROM director WHERE id_director=?;";
+            String sql = "DELETE FROM director WHERE dir_id=?;";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
             int rowsDeleted = statement.executeUpdate();

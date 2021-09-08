@@ -6,6 +6,10 @@
 package main;
 
 import access.DirectorDAO;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import model.DirectorModel;
 import view.MainWindow;
 /**
@@ -13,11 +17,14 @@ import view.MainWindow;
  * @author Georgie
  */
 public class Main {
-
+     
+      FondoPanel fondo = new FondoPanel();
+      
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         // TODO code application logic here
         DirectorDAO dir = new DirectorDAO();
         /*
@@ -40,7 +47,34 @@ public class Main {
         //DirectorModel dm = new DirectorModel(101, "Gerogie", "Wild", "Colombiano");
         //dir.updateDirector(dm);
        //dir.deleteMuseum(101);
+       
+       
+        
+       
       
     }
+    
+    
+    class FondoPanel extends JPanel {
+    
+        private Image imagen;
+       
+        
+        @Override
+        public void paint(Graphics g)
+        {
+        
+          imagen = new ImageIcon(getClass().getResource("/imagenes/uno.jpg")).getImage();
+           g.drawImage(imagen,0,0, getWidth(),getHeight(),this);
+           
+            setOpaque(false);
+            super.paint(g);
+        
+        }
+    
+    
+    
+    } 
+  
     
 }

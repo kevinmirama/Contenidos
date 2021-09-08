@@ -6,9 +6,13 @@
 package view;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 /**
@@ -17,8 +21,11 @@ import javax.swing.JFrame;
  */
 public class MainWindow extends JFrame {
     
+
+    
     public MainWindow(){
         initComponents();
+        
     }
     
     private void initComponents(){
@@ -47,4 +54,11 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
     }
+    
+    
+    
+    
+    
+    
+    
 }

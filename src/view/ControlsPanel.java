@@ -8,10 +8,13 @@ package view;
 import controller.ChangeEvent;
 import controller.ClickEvent;
 import controller.InitialData;
+import java.awt.Graphics;
 
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -30,6 +33,9 @@ import model.PeliculaModel;
  */
 public class ControlsPanel extends JPanel {
  
+    
+    
+    
     private JLabel                       lblMuseums;
     private JComboBox<DirectorModel>       cbxDirectorsList;
     private JLabel                       lblName;
@@ -47,6 +53,8 @@ public class ControlsPanel extends JPanel {
     public ControlsPanel(ResultsPanel resultsPanel){
         this.tblResults = resultsPanel.getTblResults();
         initComponents();
+        
+        
     }
     
     
@@ -59,6 +67,7 @@ public class ControlsPanel extends JPanel {
         
         // Complete Directors info
         this.setTblResults(initialData.getDirectors());
+        
         
        
         
@@ -187,6 +196,7 @@ public class ControlsPanel extends JPanel {
         return btnDeleteDirector;
     }
     
-
+ 
+  
    
 }
