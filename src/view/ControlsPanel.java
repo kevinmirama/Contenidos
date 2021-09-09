@@ -8,6 +8,7 @@ package view;
 import controller.ChangeEvent;
 import controller.ClickEvent;
 import controller.InitialData;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import java.awt.GridLayout;
@@ -22,9 +23,12 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import main.Main;
+import java.awt.Font;
 
 import model.DirectorModel;
 import model.PeliculaModel;
+import view.MainWindow.FondoPanel;
 
 
 /**
@@ -33,7 +37,7 @@ import model.PeliculaModel;
  */
 public class ControlsPanel extends JPanel {
  
-    
+    FondoPanel fondo = new FondoPanel();
     
     
     private JLabel                       lblMuseums;
@@ -52,23 +56,26 @@ public class ControlsPanel extends JPanel {
      */
     public ControlsPanel(ResultsPanel resultsPanel){
         this.tblResults = resultsPanel.getTblResults();
+        
         initComponents();
+       
+        
         
         
     }
-    
-    
+  
     /**
      * 
      */
     private void initComponents(){
+       
         setLayout(new GridLayout(2,1));
         InitialData initialData = new InitialData();
         
         // Complete Directors info
         this.setTblResults(initialData.getDirectors());
         
-        
+     
        
         
         //this.cbxDirectorsList = new JComboBox();
@@ -81,14 +88,19 @@ public class ControlsPanel extends JPanel {
     
         // Name patttern 
         this.lblName = new JLabel(" Nombre del Director");
+        
+        lblName.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.getLblName());
         
+        
         this.txtName = new JTextField();
+        txtName.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.getTxtName());
         
         
         // Search button
         this.btnSearch = new JButton("Buscar");
+        btnSearch.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.btnSearch);
         
         ClickEvent clickEvent = new ClickEvent(this);
@@ -96,16 +108,19 @@ public class ControlsPanel extends JPanel {
         
         // Insert  button
         this.btnAddDirector = new JButton("Agregar Nuevo Director");
+       btnAddDirector.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.getBtnAddDirector());
         this.getBtnAddDirector().addActionListener(clickEvent);
         
         // Edit button
         this.btnEditDirector = new JButton("Editar un Director");
+         btnEditDirector.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.getBtnEditDirector());
         this.getBtnEditDirector().addActionListener(clickEvent);
         
         //Delete button
         this.btnDeleteDirector = new JButton("Eliminar un Director");
+        btnDeleteDirector.setFont(new Font("Berlin Sans FB",Font.PLAIN,18));
         add(this.getBtnDeleteDiector());
         this.getBtnDeleteDiector().addActionListener(clickEvent);
         
@@ -115,6 +130,7 @@ public class ControlsPanel extends JPanel {
      * @return the lblDirectors
      */
     public JLabel getLblDirectors() {
+     
         return lblMuseums;
     }
 
@@ -130,6 +146,7 @@ public class ControlsPanel extends JPanel {
      * @return the lblName
      */
     public JLabel getLblName() {
+        
         return lblName;
     }
 
@@ -165,6 +182,8 @@ public class ControlsPanel extends JPanel {
      * @param Directors
      */
     public void setTblResults(ArrayList<DirectorModel> directors) {
+        
+        
         String[] headers = {"ID", "Nombre", "Apellido", "Nacionalidad"};
         this.tblResults.removeAll();
         DefaultTableModel tableModel = new DefaultTableModel();
@@ -195,8 +214,27 @@ public class ControlsPanel extends JPanel {
     public JButton getBtnDeleteDiector() {
         return btnDeleteDirector;
     }
-    
- 
+
   
+    class FondoPanel extends JPanel {
+    
+        private Image imagen;
+       
+        
+        @Override
+        public void paint(Graphics g)
+        {
+        
+          imagen = new ImageIcon(getClass().getResource("/imagenes/uno.jpg")).getImage();
+           g.drawImage(imagen,0,0, getWidth(),getHeight(),this);
+           
+            setOpaque(false);
+            super.paint(g);
+        
+        }
+    
+    } 
+   
+   
    
 }

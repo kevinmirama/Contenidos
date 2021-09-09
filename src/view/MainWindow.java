@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import main.Main;
 
 
 /**
@@ -20,15 +21,21 @@ import javax.swing.JPanel;
  * @author Georgie
  */
 public class MainWindow extends JFrame {
-    
-
+   
+    FondoPanel fondo = new FondoPanel();
     
     public MainWindow(){
+        
+       
         initComponents();
+        
         
     }
     
     private void initComponents(){
+        
+        
+        
         setTitle("Directores - MVC");
         
         try {
@@ -56,9 +63,27 @@ public class MainWindow extends JFrame {
     }
     
     
+     class FondoPanel extends JPanel {
+    
+        private Image imagen;
+       
+        
+        @Override
+        public void paint(Graphics g)
+        {
+        
+          imagen = new ImageIcon(getClass().getResource("/imagenes/uno.jpg")).getImage();
+           g.drawImage(imagen,0,0, getWidth(),getHeight(),this);
+           
+            setOpaque(false);
+            super.paint(g);
+        
+        }
+    
+    } 
     
     
     
-    
+ 
     
 }

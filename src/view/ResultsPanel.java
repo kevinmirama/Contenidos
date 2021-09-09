@@ -7,6 +7,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -16,12 +19,17 @@ import javax.swing.JTable;
  * @author Georgie
  */
 public class ResultsPanel extends JPanel {
+    
+    
    
     private JTable      tblResults;
     private JScrollPane jspPane;
     
     public ResultsPanel(){
+        
+        
         initComponents();
+        
     }
     
     private void initComponents(){
@@ -47,4 +55,6 @@ public class ResultsPanel extends JPanel {
     public void setTblResults(JTable tblResults) {
         this.tblResults = tblResults;
     }
+ 
+    
 }
