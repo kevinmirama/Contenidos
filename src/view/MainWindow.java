@@ -17,7 +17,7 @@ import main.Main;
 
 
 /**
- *
+ *csc
  * @author Georgie
  */
 public class MainWindow extends JFrame {
